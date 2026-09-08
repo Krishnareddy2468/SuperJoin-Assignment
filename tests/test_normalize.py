@@ -218,6 +218,15 @@ def test_context_collects_scope_basis_period_geography_and_publisher() -> None:
     assert result.warnings == ()
 
 
+def test_bare_fiscal_year_range_in_projection_prose_is_normalized() -> None:
+    result = normalize_context("Real GDP growth for 2025-26 is projected at 6.5 per cent")
+
+    assert result.value.period.label == "FY 2025-26"
+    assert result.value.period.start == date(2025, 4, 1)
+    assert result.value.period.end == date(2026, 3, 31)
+    assert result.value.qualifiers["value_status"] == "forecast"
+
+
 def test_actual_forecast_and_standalone_consolidated_conflicts_are_not_guessed() -> None:
     result = normalize_context(
         "Standalone and consolidated actual and forecast values for FY24"

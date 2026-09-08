@@ -290,7 +290,7 @@ def test_the_company_named_on_the_cover_becomes_the_subject() -> None:
 
 
 def test_a_vendor_credited_inside_a_table_is_not_the_subject() -> None:
-    """A macro report has no single reporting company, so nothing should be claimed.
+    """A macro report uses its geographic subject, not a credited data vendor.
 
     Statistical annexes credit data providers, and treating one as the document's
     subject would file a whole economy's figures under a vendor's name.
@@ -303,7 +303,22 @@ def test_a_vendor_credited_inside_a_table_is_not_the_subject() -> None:
         "Sources: CEIC Data Company Ltd.",
     )
 
-    assert detect_reporting_entity(pdf) is None
+    entity = detect_reporting_entity(pdf)
+    assert entity is not None
+    assert entity.canonical_name == "India"
+    assert entity.entity_type == "place"
+
+
+def test_gdp_growth_uses_one_predicate_across_prose_variants() -> None:
+    _, survey = extract_text(
+        "India's real GDP is estimated to grow by 6.4 per cent in FY25."
+    )
+    _, report = extract_text(
+        "India's real GDP percentage change was 6.5 percent in FY25."
+    )
+
+    assert survey.facts[0].predicate.key == "real_gdp_growth"
+    assert report.facts[0].predicate.key == "real_gdp_growth"
 
 
 def test_no_subject_is_claimed_when_no_company_clearly_leads() -> None:
@@ -413,12 +428,15 @@ def test_macroeconomic_reports_yield_grounded_facts_without_new_rules(filename: 
             assert source.text[local_start:local_end] == evidence.quote
 
 
-def test_no_reporting_company_is_claimed_for_a_macroeconomic_report() -> None:
-    """A report about an economy has no reporting company, and guessing one is harmful.
+def test_macro_report_uses_geographic_subject_not_a_reporting_company() -> None:
+    """A country report uses its geographic subject, not a credited data vendor.
 
     Statistical annexes credit data vendors; treating one as the subject would file a
     whole economy's figures under its name.
     """
     pdf = PdfIngestor().ingest(MACRO_DATA / "03-imf-india-2025-article-iv-excerpt.pdf")
 
-    assert detect_reporting_entity(pdf) is None
+    entity = detect_reporting_entity(pdf)
+    assert entity is not None
+    assert entity.canonical_name == "India"
+    assert entity.entity_type == "place"

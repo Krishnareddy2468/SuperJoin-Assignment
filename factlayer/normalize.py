@@ -448,6 +448,30 @@ def _normalize_period(
             confidence=0.99,
         )
 
+    # Institutional reports often omit the FY prefix in prose and write a fiscal
+    # range as ``2025-26``. Only accept that compact form when nearby language makes
+    # it a reporting period, so ordinary hyphenated identifiers are not dates.
+    bare_fiscal = re.search(r"\b(20\d{2})\s*[-–/]\s*(\d{2})\b", lowered)
+    if bare_fiscal and re.search(
+        r"\b(?:fiscal|financial|growth|projected|estimate|estimated|outlook|budget)\b",
+        lowered,
+    ):
+        start_year = int(bare_fiscal.group(1))
+        end_year = 2000 + int(bare_fiscal.group(2))
+        start = date(start_year, fiscal_year_start_month, 1)
+        end = _day_before_year_start(end_year, fiscal_year_start_month)
+        return NormalizationResult(
+            NormalizedPeriod(
+                kind=PeriodKind.FISCAL_YEAR,
+                period=ReportingPeriod(
+                    label=f"FY {start_year}-{str(end_year)[-2:]}",
+                    start=start,
+                    end=end,
+                ),
+            ),
+            confidence=0.94,
+        )
+
     year_ended = re.search(
         rf"\byear ended\s+({_MONTH_PATTERN})\s+(\d{{1,2}}),?\s+(\d{{4}})", lowered
     )
@@ -727,6 +751,10 @@ _MEASURE_SYNONYMS = {
     "total_revenue_from_customers": "revenue_from_operations",
     "revenues_from_customers": "revenue_from_operations",
     "total_revenue": "revenue_from_operations",
+    "gdp_growth": "real_gdp_growth",
+    "real_gdp_growth_rate": "real_gdp_growth",
+    "real_gdp_percentage_change": "real_gdp_growth",
+    "indias_real_gdp_percentage_change": "real_gdp_growth",
 }
 # Profit and loss are deliberately not aliased to each other. Statements report both as
 # positive magnitudes, so merging them without sign normalization would compare a loss

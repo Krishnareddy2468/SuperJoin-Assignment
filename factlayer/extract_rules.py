@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from collections import Counter
 from dataclasses import dataclass, field, replace
 from datetime import date
 
@@ -170,12 +171,45 @@ def detect_reporting_entity(pdf: IngestedPdf) -> EntityReference | None:
     # on: a central bank's annual report mentions agencies and a statistical annex
     # credits its data vendor, and neither is the subject of the document's figures.
     counts = {name: total for name, total in counts.items() if name in introduced}
+    def geographic_subject() -> EntityReference | None:
+        # Institutional and country reports do not have a reporting company, but their
+        # figures still need a stable subject if several publications describe the same
+        # place. Reuse the geography cues already extracted by the context normalizer;
+        # this stays content-driven instead of depending on filenames or a report list.
+        geography_counts: Counter[str] = Counter()
+        for page in pdf.pages[:6]:
+            for passage in page.passages:
+                if passage.role is not PassageRole.BODY:
+                    continue
+                context = normalize_context(passage.text)
+                geography = context.value.geography if context.value else None
+                if geography and geography.casefold() != "global":
+                    # Do not mistake the country token in a vendor's registered name
+                    # (for example, ``... India Private Limited``) for the report's
+                    # geographic subject.
+                    if re.search(
+                        rf"\b{re.escape(geography)}\s+(?:private\s+)?(?:limited|ltd\.?|incorporated|inc\.?)\b",
+                        passage.text,
+                        re.IGNORECASE,
+                    ):
+                        continue
+                    geography_counts[geography] += 1
+        if not geography_counts:
+            return None
+        geography, _ = geography_counts.most_common(1)[0]
+        normalized = re.sub(r"[^a-z0-9]+", "_", geography.casefold()).strip("_")
+        return EntityReference(
+            id=f"place:{normalized}",
+            canonical_name=geography,
+            entity_type="place",
+        )
+
     if not counts:
-        return None
+        return geographic_subject()
     ranked = sorted(counts.items(), key=lambda item: (-item[1], -len(item[0]), item[0]))
     name, occurrences = ranked[0]
     if occurrences < 2:
-        return None
+        return geographic_subject()
     # Being the most mentioned company is not proof of being the reporting one. A
     # prospectus discusses acquisitions and shareholders at similar length to the
     # issuer, and picking the runner-up would file the whole document's figures under
@@ -184,7 +218,7 @@ def detect_reporting_entity(pdf: IngestedPdf) -> EntityReference | None:
     # cannot tell whose number this is" beats silently choosing the wrong company.
     runner_up = ranked[1][1] if len(ranked) > 1 else 0
     if runner_up and occurrences < 2 * runner_up:
-        return None
+        return geographic_subject()
     return EntityReference(
         id=f"cin:{cin}" if cin else None,
         canonical_name=name,
@@ -859,6 +893,13 @@ class DeterministicExtractor:
         )
 
     def _infer_predicate(self, text: str, start: int, end: int) -> tuple[str | None, float]:
+        before_value = text[max(0, start - 160) : start]
+        if re.search(
+            r"\b(?:real\s+)?gdp\b.{0,120}\b(?:growth|percentage\s+change|grow|grew|expanded|moderated|increased|declined)\b",
+            before_value,
+            re.IGNORECASE,
+        ):
+            return "real GDP growth", 0.9
         sentence_start = self._sentence_start(text, start)
         sentence_before = re.sub(r"\s+", " ", text[sentence_start:start])
         before = sentence_before.strip(" •:-\n\t")
