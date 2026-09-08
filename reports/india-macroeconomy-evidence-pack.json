@@ -1,0 +1,1291 @@
+{
+  "summary": {
+    "documents": 3,
+    "facts": 3125,
+    "relations": 6781,
+    "consistency_findings": 0,
+    "recorded_failures": 2758,
+    "relations_by_kind": {
+      "incomparable": 117,
+      "needs_review": 6286,
+      "reconciled_by_basis": 69,
+      "corroborates": 12,
+      "reconciled_by_period": 57,
+      "contradicts": 240
+    },
+    "facts_by_extractor": {
+      "deterministic": 1692,
+      "table": 1447
+    },
+    "distinct_predicates": 1375
+  },
+  "documents": [
+    {
+      "id": "doc_86f2e79a3b7b4a3698907897",
+      "filename": "01-india-economic-survey-2024-25-excerpt.pdf",
+      "pages": 89,
+      "status": "partial",
+      "extraction_mode": "offline"
+    },
+    {
+      "id": "doc_73209a2caa2f5671f2feae06",
+      "filename": "02-rbi-annual-report-2024-25-excerpt.pdf",
+      "pages": 100,
+      "status": "partial",
+      "extraction_mode": "offline"
+    },
+    {
+      "id": "doc_f6d3cfecafd9548920349b29",
+      "filename": "03-imf-india-2025-article-iv-excerpt.pdf",
+      "pages": 95,
+      "status": "partial",
+      "extraction_mode": "offline"
+    }
+  ],
+  "document_names": {
+    "doc_86f2e79a3b7b4a3698907897": "01-india-economic-survey-2024-25-excerpt.pdf",
+    "doc_73209a2caa2f5671f2feae06": "02-rbi-annual-report-2024-25-excerpt.pdf",
+    "doc_f6d3cfecafd9548920349b29": "03-imf-india-2025-article-iv-excerpt.pdf"
+  },
+  "consistency_findings": [],
+  "top_failure_reasons": [
+    [
+      "A numeric value was found, but no reliable predicate label was nearby.",
+      2758
+    ]
+  ],
+  "relationship_examples": {
+    "contradicts": [
+      {
+        "relation_type": "contradicts",
+        "confidence": 0.864,
+        "explanation": "Index of Industrial Production: 4.8 and 7.8 differ by 3.0 while period, scope, basis, as-of date, unit, and geography are compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "index_of_industrial_production",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "4.8",
+          "normalized_value": "4.8",
+          "unit": null,
+          "context": {
+            "geography": "India",
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "1",
+              "table_index": "1",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 30,
+            "quote": "4.8",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "index_of_industrial_production",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "7.8",
+          "normalized_value": "7.8",
+          "unit": null,
+          "context": {
+            "geography": "India",
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "2",
+              "table_index": "1",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 30,
+            "quote": "7.8",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "contradicts",
+        "confidence": 0.864,
+        "explanation": "Index of Industrial Production: 7.8 and 6.1 differ by 1.7 while period, scope, basis, as-of date, unit, and geography are compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "index_of_industrial_production",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "7.8",
+          "normalized_value": "7.8",
+          "unit": null,
+          "context": {
+            "geography": "India",
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "2",
+              "table_index": "1",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 30,
+            "quote": "7.8",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "index_of_industrial_production",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "6.1",
+          "normalized_value": "6.1",
+          "unit": null,
+          "context": {
+            "geography": "India",
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "3",
+              "table_index": "1",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 30,
+            "quote": "6.1",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "contradicts",
+        "confidence": 0.864,
+        "explanation": "Index of Industrial Production: 5.1 and 4.8 differ by 0.3 while period, scope, basis, as-of date, unit, and geography are compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "index_of_industrial_production",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "5.1",
+          "normalized_value": "5.1",
+          "unit": null,
+          "context": {
+            "geography": "India",
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "4",
+              "table_index": "1",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 30,
+            "quote": "5.1",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "index_of_industrial_production",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "4.8",
+          "normalized_value": "4.8",
+          "unit": null,
+          "context": {
+            "geography": "India",
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "1",
+              "table_index": "1",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 30,
+            "quote": "4.8",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "corroborates": [
+      {
+        "relation_type": "corroborates",
+        "confidence": 0.81144,
+        "explanation": "Food and Beverages: 6.7 and 6.7 agree within a tolerance of 0.10; material context is compatible.",
+        "context_diff": [
+          {
+            "field": "geography",
+            "left": "india",
+            "right": null,
+            "explains_difference": false
+          }
+        ],
+        "fact_a": {
+          "predicate": "food_and_beverages",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "6.7",
+          "normalized_value": "6.7",
+          "unit": null,
+          "context": {
+            "geography": "India",
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "7",
+              "table_index": "1",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 94,
+            "quote": "6.7",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "food_and_beverages",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "6.7",
+          "normalized_value": "6.7",
+          "unit": null,
+          "context": {
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "9",
+              "table_index": "1",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 94,
+            "quote": "6.7",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "corroborates",
+        "confidence": 0.81144,
+        "explanation": "GDP-M Ratio$* 3: 1.2 and 1.2 agree within a tolerance of 0.10; material context is compatible.",
+        "context_diff": [
+          {
+            "field": "geography",
+            "left": null,
+            "right": "india",
+            "explains_difference": false
+          }
+        ],
+        "fact_a": {
+          "predicate": "gdp_m_ratio_3",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "1.2",
+          "normalized_value": "1.2",
+          "unit": null,
+          "context": {
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "8",
+              "table_index": "1",
+              "table_row": "32"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 94,
+            "quote": "1.2",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "gdp_m_ratio_3",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "1.2",
+          "normalized_value": "1.2",
+          "unit": null,
+          "context": {
+            "geography": "India",
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "9",
+              "table_index": "1",
+              "table_row": "32"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 94,
+            "quote": "1.2",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "corroborates",
+        "confidence": 0.703248,
+        "explanation": "per cent: 6.4 and 6.4 agree within a tolerance of 0.10; material context is compatible.",
+        "context_diff": [
+          {
+            "field": "geography",
+            "left": null,
+            "right": "india",
+            "explains_difference": false
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "6.4",
+          "normalized_value": "6.4",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "estimate; real",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real",
+              "value_status": "estimate"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 13,
+            "quote": "Source: Calculations based on Statement 13: Annual and Quarterly Estimates of GDP at constant prices, MoSPI\nNote: FY25 values are First Advance Estimates.\n1.23 On the supply side, real gross value added (GVA) is also estimated to grow by\n6.4 per cent.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "6.4",
+          "normalized_value": "6.4",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "estimate; real",
+            "geography": "India",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real",
+              "value_status": "estimate"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 13,
+            "quote": "1.22 As per the first advance estimates released by the National Statistical Office,\nMinistry of Statistics & Programme Implementation (MoSPI), the real gross\ndomestic product (GDP) growth for FY25 is estimated to be 6.4 per cent.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "incomparable": [
+      {
+        "relation_type": "incomparable",
+        "confidence": 0.5616,
+        "explanation": "per cent in FY: the facts are not safely comparable because period, basis.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2026-03-31",
+              "start": "2025-04-01"
+            },
+            "right": {
+              "end": "2025-03-31",
+              "start": "2024-04-01"
+            },
+            "explains_difference": true
+          },
+          {
+            "field": "basis",
+            "left": "forecast",
+            "right": "estimate; real",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "4.8",
+          "normalized_value": "4.8",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2025-26",
+              "start": "2025-04-01",
+              "end": "2026-03-31"
+            },
+            "basis": "forecast",
+            "geography": "India",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "value_status": "forecast"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 86,
+            "quote": "In the December 2024 RBI’s\nMonetary Policy Committee report revised its inflation projection from 4.5 per cent to\n4.8 per cent in FY25.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "60.3",
+          "normalized_value": "60.3",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "estimate; real",
+            "geography": "India",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real",
+              "value_status": "estimate"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 13,
+            "quote": "PFCE as a share of GDP (at current prices) is estimated to increase from\n60.3 per cent in FY24 to 61.8 per cent in FY25.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "incomparable",
+        "confidence": 0.5616,
+        "explanation": "per cent in FY: the facts are not safely comparable because period, basis.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2025-03-31",
+              "start": "2024-04-01"
+            },
+            "right": {
+              "end": "2026-03-31",
+              "start": "2025-04-01"
+            },
+            "explains_difference": true
+          },
+          {
+            "field": "basis",
+            "left": "estimate; real",
+            "right": "forecast",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "61.8",
+          "normalized_value": "61.8",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "estimate; real",
+            "geography": "India",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real",
+              "value_status": "estimate"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 13,
+            "quote": "PFCE as a share of GDP (at current prices) is estimated to increase from\n60.3 per cent in FY24 to 61.8 per cent in FY25.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "4.8",
+          "normalized_value": "4.8",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2025-26",
+              "start": "2025-04-01",
+              "end": "2026-03-31"
+            },
+            "basis": "forecast",
+            "geography": "India",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "value_status": "forecast"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 86,
+            "quote": "In the December 2024 RBI’s\nMonetary Policy Committee report revised its inflation projection from 4.5 per cent to\n4.8 per cent in FY25.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "incomparable",
+        "confidence": 0.5616,
+        "explanation": "per cent in FY: the facts are not safely comparable because period, basis.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2026-03-31",
+              "start": "2025-04-01"
+            },
+            "right": {
+              "end": "2025-03-31",
+              "start": "2024-04-01"
+            },
+            "explains_difference": true
+          },
+          {
+            "field": "basis",
+            "left": "forecast",
+            "right": "estimate; real",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "4.2",
+          "normalized_value": "4.2",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2025-26",
+              "start": "2025-04-01",
+              "end": "2026-03-31"
+            },
+            "basis": "forecast",
+            "geography": "India",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "value_status": "forecast"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 86,
+            "quote": "Assuming a normal monsoon and no further external or policy\nshocks, the RBI expects headline inflation to be 4.2 per cent in FY26.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "60.3",
+          "normalized_value": "60.3",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "estimate; real",
+            "geography": "India",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real",
+              "value_status": "estimate"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 13,
+            "quote": "PFCE as a share of GDP (at current prices) is estimated to increase from\n60.3 per cent in FY24 to 61.8 per cent in FY25.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "needs_review": [
+      {
+        "relation_type": "needs_review",
+        "confidence": 0.495,
+        "explanation": "Fertilisers: comparison needs review because neither numeric fact has material context.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "fertilisers",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "2",
+          "normalized_value": "2",
+          "unit": null,
+          "context": {
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "2",
+              "table_index": "1",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 46,
+            "quote": "2",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "fertilisers",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "0.7",
+          "normalized_value": "0.7",
+          "unit": null,
+          "context": {
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "1",
+              "table_index": "1",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 46,
+            "quote": "0.7",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "needs_review",
+        "confidence": 0.495,
+        "explanation": "Private: comparison needs review because neither numeric fact has material context.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "private",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "-5.3",
+          "normalized_value": "-5.3",
+          "unit": null,
+          "context": {
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "1",
+              "table_index": "1",
+              "table_row": "3"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 23,
+            "quote": "-5.3",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "private",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "7.6",
+          "normalized_value": "7.6",
+          "unit": null,
+          "context": {
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "5",
+              "table_index": "1",
+              "table_row": "3"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 23,
+            "quote": "7.6",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "needs_review",
+        "confidence": 0.495,
+        "explanation": "Private: comparison needs review because neither numeric fact has material context.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "private",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "7.6",
+          "normalized_value": "7.6",
+          "unit": null,
+          "context": {
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "5",
+              "table_index": "1",
+              "table_row": "3"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 23,
+            "quote": "7.6",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "private",
+          "subject": "02 rbi annual report 2024 25 excerpt",
+          "raw_value": "11.7",
+          "normalized_value": "11.7",
+          "unit": null,
+          "context": {
+            "publisher": "02-rbi-annual-report-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "table_column": "2",
+              "table_index": "1",
+              "table_row": "3"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_73209a2caa2f5671f2feae06",
+            "pdf_page_index": 23,
+            "quote": "11.7",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "reconciled_by_basis": [
+      {
+        "relation_type": "reconciled_by_basis",
+        "confidence": 0.7176,
+        "explanation": "per cent: 6.4 and 7.2 refer to different basis contexts (estimate; real versus real), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "basis",
+            "left": "estimate; real",
+            "right": "real",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "6.4",
+          "normalized_value": "6.4",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "estimate; real",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real",
+              "value_status": "estimate"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 13,
+            "quote": "Source: Calculations based on Statement 13: Annual and Quarterly Estimates of GDP at constant prices, MoSPI\nNote: FY25 values are First Advance Estimates.\n1.23 On the supply side, real gross value added (GVA) is also estimated to grow by\n6.4 per cent.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "7.2",
+          "normalized_value": "7.2",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "real",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 14,
+            "quote": "Growth in the services sector is\nexpected to remain robust at 7.2 per cent, driven by healthy activity in financial, real\nestate, professional services, public administration, defence, and other services.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_basis",
+        "confidence": 0.7176,
+        "explanation": "per cent: 3.8 and 7.2 refer to different basis contexts (estimate; real versus real), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "basis",
+            "left": "estimate; real",
+            "right": "real",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "3.8",
+          "normalized_value": "3.8",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "estimate; real",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real",
+              "value_status": "estimate"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 13,
+            "quote": "The agriculture sector is expected to rebound to a growth of 3.8 per cent\nin FY25.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "7.2",
+          "normalized_value": "7.2",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "basis": "real",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "price_basis": "real"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 14,
+            "quote": "Growth in the services sector is\nexpected to remain robust at 7.2 per cent, driven by healthy activity in financial, real\nestate, professional services, public administration, defence, and other services.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_basis",
+        "confidence": 0.7176,
+        "explanation": "per cent: 73.8 and 0.7 refer to different basis contexts (adjusted versus real), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "basis",
+            "left": "adjusted",
+            "right": "real",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "73.8",
+          "normalized_value": "73.8",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "Q2 FY 2024-25",
+              "start": "2024-07-01",
+              "end": "2024-09-30"
+            },
+            "basis": "adjusted",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "adjustment": "adjusted",
+              "period_kind": "quarter"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 21,
+            "quote": "Early results of the RBI’s Order Books, Inventory,\nand Capacity Utilisation Survey (OBICUS) show that the seasonally adjusted capacity\nutilisation (CU) in manufacturing firms was 74.7 per cent in Q2 FY25, above the long-\nterm average of 73.8 per cent.21 A private sector report’s22 analysis of a sample of capital\ngoods companies indicates that the order books of these companies have registered a sharp\nincrease of 23.6 per cent in FY24 as against a compund anual growth rate (CAGR) of 4.5\nper cent in the preceding four years.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "0.7",
+          "normalized_value": "0.7",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "Q2 FY 2024-25",
+              "start": "2024-07-01",
+              "end": "2024-09-30"
+            },
+            "basis": "real",
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "price_basis": "real"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 21,
+            "quote": "1.41 On the external front, exports of goods and non-factor services at constant prices\nincreased by 5.6 per cent in H1 FY25, while imports increased by 0.7 per cent.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "reconciled_by_period": [
+      {
+        "relation_type": "reconciled_by_period",
+        "confidence": 0.7176,
+        "explanation": "per cent in FY: 5.4 and 51.5 refer to different period contexts (2023-04-01/2024-03-31 versus 2024-04-01/2025-03-31), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2024-03-31",
+              "start": "2023-04-01"
+            },
+            "right": {
+              "end": "2025-03-31",
+              "start": "2024-04-01"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "5.4",
+          "normalized_value": "5.4",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2023-24",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 27,
+            "quote": "1.52 Retail headline inflation, as measured by the change in the Consumer Price Index\n(CPI), has softened from 5.4 per cent in FY24 to 4.9 per cent in April – December 2024.\nThe decline is attributed to a 0.9 percentage point reduction in core (non-food, non-\nfuel) inflation between FY24 and April – December 2024.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "51.5",
+          "normalized_value": "51.5",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 29,
+            "quote": "Net FDI inflow declined over this period, primarily\non account of the uptick in repatriation, which is higher by 33.2 per cent YoY after\na growth of 51.5 per cent in FY24.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_period",
+        "confidence": 0.7176,
+        "explanation": "per cent in FY: 7.5 and 51.5 refer to different period contexts (2023-04-01/2024-03-31 versus 2024-04-01/2025-03-31), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2024-03-31",
+              "start": "2023-04-01"
+            },
+            "right": {
+              "end": "2025-03-31",
+              "start": "2024-04-01"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "7.5",
+          "normalized_value": "7.5",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2023-24",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 27,
+            "quote": "Food inflation, measured by the Consumer Food\nPrice Index (CFPI), has increased from 7.5 per cent in FY24 to 8.4 per cent in FY25\n(April-December), primarily driven by a few food items such as vegetables and pulses.\nChart I.47 plots headline retail inflation excluding the following commodities – tomato,\nonion and potato, (TOP).",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "51.5",
+          "normalized_value": "51.5",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 29,
+            "quote": "Net FDI inflow declined over this period, primarily\non account of the uptick in repatriation, which is higher by 33.2 per cent YoY after\na growth of 51.5 per cent in FY24.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_period",
+        "confidence": 0.7176,
+        "explanation": "per cent in FY: 8.4 and 51.5 refer to different period contexts (2023-04-01/2024-03-31 versus 2024-04-01/2025-03-31), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2024-03-31",
+              "start": "2023-04-01"
+            },
+            "right": {
+              "end": "2025-03-31",
+              "start": "2024-04-01"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "8.4",
+          "normalized_value": "8.4",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2023-24",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 27,
+            "quote": "Food inflation, measured by the Consumer Food\nPrice Index (CFPI), has increased from 7.5 per cent in FY24 to 8.4 per cent in FY25\n(April-December), primarily driven by a few food items such as vegetables and pulses.\nChart I.47 plots headline retail inflation excluding the following commodities – tomato,\nonion and potato, (TOP).",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "per_cent_in_fy",
+          "subject": "01 india economic survey 2024 25 excerpt",
+          "raw_value": "51.5",
+          "normalized_value": "51.5",
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "FY 2024-25",
+              "start": "2024-04-01",
+              "end": "2025-03-31"
+            },
+            "publisher": "01-india-economic-survey-2024-25-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_86f2e79a3b7b4a3698907897",
+            "pdf_page_index": 29,
+            "quote": "Net FDI inflow declined over this period, primarily\non account of the uptick in repatriation, which is higher by 33.2 per cent YoY after\na growth of 51.5 per cent in FY24.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      }
+    ]
+  }
+}

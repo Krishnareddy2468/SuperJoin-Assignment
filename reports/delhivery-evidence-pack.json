@@ -1,0 +1,4305 @@
+{
+  "summary": {
+    "documents": 3,
+    "facts": 2204,
+    "relations": 2691,
+    "consistency_findings": 16,
+    "recorded_failures": 4010,
+    "relations_by_kind": {
+      "needs_review": 1986,
+      "corroborates": 153,
+      "incomparable": 81,
+      "reconciled_by_scope": 2,
+      "reconciled_by_as_of": 5,
+      "reconciled_by_period": 451,
+      "contradicts": 13
+    },
+    "facts_by_extractor": {
+      "deterministic": 1801,
+      "table": 504
+    },
+    "distinct_predicates": 1119
+  },
+  "documents": [
+    {
+      "id": "doc_0d7e71e1766ef33063e52a21",
+      "filename": "01-delhivery-prospectus-2022-excerpt.pdf",
+      "pages": 100,
+      "status": "partial",
+      "extraction_mode": "offline"
+    },
+    {
+      "id": "doc_de6d79adc0667d66f5415fa4",
+      "filename": "02-delhivery-annual-report-fy24-excerpt.pdf",
+      "pages": 100,
+      "status": "partial",
+      "extraction_mode": "offline"
+    },
+    {
+      "id": "doc_5ca307085c96c1fcbfd2d99a",
+      "filename": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+      "pages": 27,
+      "status": "partial",
+      "extraction_mode": "offline"
+    }
+  ],
+  "document_names": {
+    "doc_0d7e71e1766ef33063e52a21": "01-delhivery-prospectus-2022-excerpt.pdf",
+    "doc_de6d79adc0667d66f5415fa4": "02-delhivery-annual-report-fy24-excerpt.pdf",
+    "doc_5ca307085c96c1fcbfd2d99a": "03-delhivery-q4-fy24-earnings-presentation.pdf"
+  },
+  "consistency_findings": [
+    {
+      "id": "check_db2977d23500f92958a10f3f",
+      "check_type": "growth",
+      "fact_ids": [
+        "fact_5f61c6efb2084ae2b57afd19",
+        "fact_0a9dcf3f6a025d4c4d0c3bf1",
+        "fact_2b779871873d61eee36c319f"
+      ],
+      "relation_type": "corroborates",
+      "formula": "growth_percent = (current - prior) / abs(prior) * 100",
+      "operands": {
+        "current": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2024-03-31",
+              "label": "FY 2023-24",
+              "start": "2023-04-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "11",
+              "table_index": "0",
+              "table_row": "1"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_5f61c6efb2084ae2b57afd19",
+          "normalized": "81420000000",
+          "predicate": "revenue_from_operations",
+          "raw": "8,142",
+          "unit": "INR"
+        },
+        "prior": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2023-03-31",
+              "label": "FY 2022-23",
+              "start": "2022-04-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "10",
+              "table_index": "0",
+              "table_row": "1"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_0a9dcf3f6a025d4c4d0c3bf1",
+          "normalized": "72250000000",
+          "predicate": "revenue_from_operations",
+          "raw": "7,225",
+          "unit": "INR"
+        },
+        "stated_growth": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2024-03-31",
+              "label": "FY 2023-24",
+              "start": "2023-04-01"
+            },
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_2b779871873d61eee36c319f",
+          "normalized": "12.68",
+          "predicate": "revenues_from_customers_percentage_change",
+          "raw": "12.68%",
+          "unit": "percent"
+        }
+      },
+      "stated_result": "12.68",
+      "calculated_result": "12.69204152249134948096885813",
+      "difference": "0.01204152249134948096885813",
+      "tolerance": "0.01971917242370182349349265454",
+      "explanation": "Reported growth 12.68 agrees with the recomputed 12.69204152249134948096885813 within the 0.01971917242370182349349265454 percentage points rounding tolerance.",
+      "confidence": 0.873,
+      "rule_version": "consistency-v1",
+      "review_state": "ready",
+      "created_at": "2026-08-22T15:59:23.373304Z"
+    },
+    {
+      "id": "check_27172ef845c91d2b054aa8cd",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_2478442f8469db431c201f2f",
+        "fact_12bf8027a96a27884bb10140",
+        "fact_4ac40b84aa0a77a7b399c77a",
+        "fact_62949071cc21db8a290d14a4",
+        "fact_6d6571e12c92458ea0da1872",
+        "fact_bf5f6c04609f054597014f24"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "01-delhivery-prospectus-2022-excerpt.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "3"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_12bf8027a96a27884bb10140",
+            "normalized": "598",
+            "predicate": "sales_and_business_development",
+            "raw": "598",
+            "unit": null
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "01-delhivery-prospectus-2022-excerpt.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_4ac40b84aa0a77a7b399c77a",
+            "normalized": "505",
+            "predicate": "engineering_data_sciences_and_product",
+            "raw": "505",
+            "unit": null
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "01-delhivery-prospectus-2022-excerpt.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_62949071cc21db8a290d14a4",
+            "normalized": "432",
+            "predicate": "customer_service",
+            "raw": "432",
+            "unit": null
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "01-delhivery-prospectus-2022-excerpt.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "6"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_6d6571e12c92458ea0da1872",
+            "normalized": "502",
+            "predicate": "other_corporate_functions",
+            "raw": "502",
+            "unit": null
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "01-delhivery-prospectus-2022-excerpt.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "2"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_bf5f6c04609f054597014f24",
+            "normalized": "13355",
+            "predicate": "operations_and_network_design",
+            "raw": "13,355",
+            "unit": null
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": "2021-12-31",
+            "basis": null,
+            "geography": "global",
+            "period": null,
+            "publisher": "01-delhivery-prospectus-2022-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "point_in_time",
+              "table_column": "1",
+              "table_index": "0",
+              "table_row": "7"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_2478442f8469db431c201f2f",
+          "normalized": "15392",
+          "predicate": "total",
+          "raw": "15,392",
+          "unit": null
+        }
+      },
+      "stated_result": "15392",
+      "calculated_result": "15392",
+      "difference": "0",
+      "tolerance": "3.0",
+      "explanation": "Stated total 15392 and recomputed 15392 cannot be judged safely. Review notes: The operands have different as of context. The operands have different geography context. The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374183Z"
+    },
+    {
+      "id": "check_9b5fb535a34723776c2e0707",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_14b3c06070aea73c65fbba30",
+        "fact_364e7ad80b2e6ad4c972e473",
+        "fact_b202965ae616a6b6b62931fa",
+        "fact_efded4a2b46df23c73c6c9a8",
+        "fact_f9741d7f9adc877d0a2f0ad4"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_364e7ad80b2e6ad4c972e473",
+            "normalized": "18600000000",
+            "predicate": "revenue_from_operations",
+            "raw": "1,860",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "2"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_b202965ae616a6b6b62931fa",
+            "normalized": "18600000000",
+            "predicate": "revenue_for_services",
+            "raw": "1,860",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_efded4a2b46df23c73c6c9a8",
+            "normalized": "750000000",
+            "predicate": "other_income",
+            "raw": "75",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "3"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_f9741d7f9adc877d0a2f0ad4",
+            "normalized": "0",
+            "predicate": "revenue_from_traded_goods",
+            "raw": "0",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2023-03-31",
+              "label": "Q4 FY 2022-23",
+              "start": "2023-01-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "1",
+              "table_index": "0",
+              "table_row": "6"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_14b3c06070aea73c65fbba30",
+          "normalized": "19340000000",
+          "predicate": "total_income",
+          "raw": "1,934",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "19340000000",
+      "calculated_result": "37950000000",
+      "difference": "18610000000",
+      "tolerance": "25000000",
+      "explanation": "Stated total 19340000000 and recomputed 37950000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374339Z"
+    },
+    {
+      "id": "check_b8296082505a37e93e267aab",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_583da46abd770eea1e78da51",
+        "fact_369ebccec7f563650aaea5d5",
+        "fact_73a9aab1769ae5d769a359b3",
+        "fact_a56f87e16124d243b97d191f",
+        "fact_a6dc6f35d36ae16d9663c3b9",
+        "fact_bc392e1b86c6217c5bd45a23"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "12"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_369ebccec7f563650aaea5d5",
+            "normalized": "1170000000",
+            "predicate": "other_operating_expense",
+            "raw": "117",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_73a9aab1769ae5d769a359b3",
+            "normalized": "2840000000",
+            "predicate": "employee_benefit_expense_excl_share_based_payments",
+            "raw": "284",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "13"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_a56f87e16124d243b97d191f",
+            "normalized": "190000000",
+            "predicate": "finance_costs",
+            "raw": "19",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "14"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_a6dc6f35d36ae16d9663c3b9",
+            "normalized": "2420000000",
+            "predicate": "depreciation_and_amortisation_expense",
+            "raw": "242",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "Q4 FY 2022-23",
+                "start": "2023-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_bc392e1b86c6217c5bd45a23",
+            "normalized": "730000000",
+            "predicate": "employee_benefit_expense_share_based_payments",
+            "raw": "73",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2023-03-31",
+              "label": "Q4 FY 2022-23",
+              "start": "2023-01-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "1",
+              "table_index": "0",
+              "table_row": "15"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_583da46abd770eea1e78da51",
+          "normalized": "21080000000",
+          "predicate": "total_expenses",
+          "raw": "2,108",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "21080000000",
+      "calculated_result": "7350000000",
+      "difference": "13730000000",
+      "tolerance": "30000000",
+      "explanation": "Stated total 21080000000 and recomputed 7350000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374383Z"
+    },
+    {
+      "id": "check_f549e73ae80ce65ccea0aa0b",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_026da9298e4bda768666f342",
+        "fact_4474169ed0fa694f356ce774",
+        "fact_73ead5851e19a2697f1458f4",
+        "fact_99ac3581ec8511e81ec2e72a"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-12-31",
+                "label": "Q3 FY 2023-24",
+                "start": "2023-10-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_4474169ed0fa694f356ce774",
+            "normalized": "21940000000",
+            "predicate": "revenue_from_operations",
+            "raw": "2,194",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-12-31",
+                "label": "Q3 FY 2023-24",
+                "start": "2023-10-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "2"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_73ead5851e19a2697f1458f4",
+            "normalized": "21940000000",
+            "predicate": "revenue_for_services",
+            "raw": "2,194",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-12-31",
+                "label": "Q3 FY 2023-24",
+                "start": "2023-10-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_99ac3581ec8511e81ec2e72a",
+            "normalized": "1310000000",
+            "predicate": "other_income",
+            "raw": "131",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2023-12-31",
+              "label": "Q3 FY 2023-24",
+              "start": "2023-10-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "2",
+              "table_index": "0",
+              "table_row": "6"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_026da9298e4bda768666f342",
+          "normalized": "23250000000",
+          "predicate": "total_income",
+          "raw": "2,325",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "23250000000",
+      "calculated_result": "45190000000",
+      "difference": "21940000000",
+      "tolerance": "20000000",
+      "explanation": "Stated total 23250000000 and recomputed 45190000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374418Z"
+    },
+    {
+      "id": "check_0f5891ddb3a26f28e8871f32",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_ca194775cc597398cfb91e66",
+        "fact_30e55a8f33c7dc1f5ea03ad7",
+        "fact_54476f584004d9586504ae50",
+        "fact_b8356e0964e3cca5f66d0649",
+        "fact_b93e8e35e75444c08fbaeb65"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-12-31",
+                "label": "Q3 FY 2023-24",
+                "start": "2023-10-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_30e55a8f33c7dc1f5ea03ad7",
+            "normalized": "3060000000",
+            "predicate": "employee_benefit_expense_excl_share_based_payments",
+            "raw": "306",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-12-31",
+                "label": "Q3 FY 2023-24",
+                "start": "2023-10-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "13"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_54476f584004d9586504ae50",
+            "normalized": "220000000",
+            "predicate": "finance_costs",
+            "raw": "22",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-12-31",
+                "label": "Q3 FY 2023-24",
+                "start": "2023-10-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_b8356e0964e3cca5f66d0649",
+            "normalized": "540000000",
+            "predicate": "employee_benefit_expense_share_based_payments",
+            "raw": "54",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-12-31",
+                "label": "Q3 FY 2023-24",
+                "start": "2023-10-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "14"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_b93e8e35e75444c08fbaeb65",
+            "normalized": "1830000000",
+            "predicate": "depreciation_and_amortisation_expense",
+            "raw": "183",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2023-12-31",
+              "label": "Q3 FY 2023-24",
+              "start": "2023-10-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "2",
+              "table_index": "0",
+              "table_row": "15"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_ca194775cc597398cfb91e66",
+          "normalized": "22900000000",
+          "predicate": "total_expenses",
+          "raw": "2,290",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "22900000000",
+      "calculated_result": "5650000000",
+      "difference": "17250000000",
+      "tolerance": "25000000",
+      "explanation": "Stated total 22900000000 and recomputed 5650000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374459Z"
+    },
+    {
+      "id": "check_92dd02dc66474dd99d4aa3b6",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_a6c2289f98f311823f87d377",
+        "fact_37ba9f7e9aad8e140c01d6ce",
+        "fact_47fb3f538995b727e6871431",
+        "fact_e3ef7497ce6eaec34cf2f37a"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "Q4 FY 2023-24",
+                "start": "2024-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "3",
+                "table_index": "0",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_37ba9f7e9aad8e140c01d6ce",
+            "normalized": "1190000000",
+            "predicate": "other_income",
+            "raw": "119",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "Q4 FY 2023-24",
+                "start": "2024-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "3",
+                "table_index": "0",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_47fb3f538995b727e6871431",
+            "normalized": "20760000000",
+            "predicate": "revenue_from_operations",
+            "raw": "2,076",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "Q4 FY 2023-24",
+                "start": "2024-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "3",
+                "table_index": "0",
+                "table_row": "2"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_e3ef7497ce6eaec34cf2f37a",
+            "normalized": "20760000000",
+            "predicate": "revenue_for_services",
+            "raw": "2,076",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2024-03-31",
+              "label": "Q4 FY 2023-24",
+              "start": "2024-01-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "3",
+              "table_index": "0",
+              "table_row": "6"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_a6c2289f98f311823f87d377",
+          "normalized": "21950000000",
+          "predicate": "total_income",
+          "raw": "2,195",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "21950000000",
+      "calculated_result": "42710000000",
+      "difference": "20760000000",
+      "tolerance": "20000000",
+      "explanation": "Stated total 21950000000 and recomputed 42710000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374495Z"
+    },
+    {
+      "id": "check_d3d97dfbe6468308d3b80812",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_b21e899b50b42e3a981e4277",
+        "fact_087c25db7603c9b6579955d4",
+        "fact_1965eee141d287c739593dcc",
+        "fact_36e16bd27fc3fd4186f214db",
+        "fact_88900537e03d23434ecacdab",
+        "fact_b2a00883703858fddbf32488"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "Q4 FY 2023-24",
+                "start": "2024-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "3",
+                "table_index": "0",
+                "table_row": "14"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_087c25db7603c9b6579955d4",
+            "normalized": "2000000000",
+            "predicate": "depreciation_and_amortisation_expense",
+            "raw": "200",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "Q4 FY 2023-24",
+                "start": "2024-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "3",
+                "table_index": "0",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_1965eee141d287c739593dcc",
+            "normalized": "490000000",
+            "predicate": "employee_benefit_expense_share_based_payments",
+            "raw": "49",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "Q4 FY 2023-24",
+                "start": "2024-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "3",
+                "table_index": "0",
+                "table_row": "12"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_36e16bd27fc3fd4186f214db",
+            "normalized": "1540000000",
+            "predicate": "other_operating_expense",
+            "raw": "154",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "Q4 FY 2023-24",
+                "start": "2024-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "3",
+                "table_index": "0",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_88900537e03d23434ecacdab",
+            "normalized": "3080000000",
+            "predicate": "employee_benefit_expense_excl_share_based_payments",
+            "raw": "308",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "Q4 FY 2023-24",
+                "start": "2024-01-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "quarter",
+                "table_column": "3",
+                "table_index": "0",
+                "table_row": "13"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_b2a00883703858fddbf32488",
+            "normalized": "270000000",
+            "predicate": "finance_costs",
+            "raw": "27",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2024-03-31",
+              "label": "Q4 FY 2023-24",
+              "start": "2024-01-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "3",
+              "table_index": "0",
+              "table_row": "15"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_b21e899b50b42e3a981e4277",
+          "normalized": "22570000000",
+          "predicate": "total_expenses",
+          "raw": "2,257",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "22570000000",
+      "calculated_result": "7380000000",
+      "difference": "15190000000",
+      "tolerance": "30000000",
+      "explanation": "Stated total 22570000000 and recomputed 7380000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374539Z"
+    },
+    {
+      "id": "check_4d5964ad8394e6edd7f06ec0",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_41a6c5b2b56fb6ca604f7d34",
+        "fact_4b99c32594aa7b98c4072e26",
+        "fact_868d78ad785684ecbaffbcd5",
+        "fact_a9ba3a75498200b825f6410e",
+        "fact_f4d6e0a936995374a0e46a80"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "FY 2022-23",
+                "start": "2022-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "7",
+                "table_index": "0",
+                "table_row": "2"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_4b99c32594aa7b98c4072e26",
+            "normalized": "72240000000",
+            "predicate": "revenue_for_services",
+            "raw": "7,224",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "FY 2022-23",
+                "start": "2022-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "7",
+                "table_index": "0",
+                "table_row": "3"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_868d78ad785684ecbaffbcd5",
+            "normalized": "20000000",
+            "predicate": "revenue_from_traded_goods",
+            "raw": "2",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "FY 2022-23",
+                "start": "2022-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "7",
+                "table_index": "0",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_a9ba3a75498200b825f6410e",
+            "normalized": "3050000000",
+            "predicate": "other_income",
+            "raw": "305",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "FY 2022-23",
+                "start": "2022-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "7",
+                "table_index": "0",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_f4d6e0a936995374a0e46a80",
+            "normalized": "72250000000",
+            "predicate": "revenue_from_operations",
+            "raw": "7,225",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2023-03-31",
+              "label": "FY 2022-23",
+              "start": "2022-04-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "7",
+              "table_index": "0",
+              "table_row": "6"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_41a6c5b2b56fb6ca604f7d34",
+          "normalized": "75300000000",
+          "predicate": "total_income",
+          "raw": "7,530",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "75300000000",
+      "calculated_result": "147560000000",
+      "difference": "72260000000",
+      "tolerance": "25000000",
+      "explanation": "Stated total 75300000000 and recomputed 147560000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374601Z"
+    },
+    {
+      "id": "check_c8138b0055fcda50ab07fc81",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_b90dab037e7b89ed70fe5860",
+        "fact_382c145722efe3f9a5cc67b4",
+        "fact_3a512e743579e70cbeabbddb",
+        "fact_a6108c4000ebb909e51e74fb",
+        "fact_e5b7ec0b161c40443d438d18"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "FY 2022-23",
+                "start": "2022-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "7",
+                "table_index": "0",
+                "table_row": "14"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_382c145722efe3f9a5cc67b4",
+            "normalized": "8310000000",
+            "predicate": "depreciation_and_amortisation_expense",
+            "raw": "831",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "FY 2022-23",
+                "start": "2022-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "7",
+                "table_index": "0",
+                "table_row": "12"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_3a512e743579e70cbeabbddb",
+            "normalized": "6060000000",
+            "predicate": "other_operating_expense",
+            "raw": "606",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "FY 2022-23",
+                "start": "2022-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "7",
+                "table_index": "0",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_a6108c4000ebb909e51e74fb",
+            "normalized": "2890000000",
+            "predicate": "employee_benefit_expense_share_based_payments",
+            "raw": "289",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2023-03-31",
+                "label": "FY 2022-23",
+                "start": "2022-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "7",
+                "table_index": "0",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_e5b7ec0b161c40443d438d18",
+            "normalized": "11110000000",
+            "predicate": "employee_benefit_expense_excl_share_based_payments",
+            "raw": "1,111",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2023-03-31",
+              "label": "FY 2022-23",
+              "start": "2022-04-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "7",
+              "table_index": "0",
+              "table_row": "15"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_b90dab037e7b89ed70fe5860",
+          "normalized": "85970000000",
+          "predicate": "total_expenses",
+          "raw": "8,597",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "85970000000",
+      "calculated_result": "28370000000",
+      "difference": "57600000000",
+      "tolerance": "25000000",
+      "explanation": "Stated total 85970000000 and recomputed 28370000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374638Z"
+    },
+    {
+      "id": "check_ddc5bed96f2d5648557d6c98",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_66f107f880e9aa4279db68ad",
+        "fact_4a236147092b2a107018ef7b",
+        "fact_6df0dd6c5fcf4c845510e86d",
+        "fact_8b0c5544bd54557788efd066"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "FY 2023-24",
+                "start": "2023-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "8",
+                "table_index": "0",
+                "table_row": "2"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_4a236147092b2a107018ef7b",
+            "normalized": "81420000000",
+            "predicate": "revenue_for_services",
+            "raw": "8,142",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "FY 2023-24",
+                "start": "2023-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "8",
+                "table_index": "0",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_6df0dd6c5fcf4c845510e86d",
+            "normalized": "81420000000",
+            "predicate": "revenue_from_operations",
+            "raw": "8,142",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "FY 2023-24",
+                "start": "2023-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "8",
+                "table_index": "0",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_8b0c5544bd54557788efd066",
+            "normalized": "4530000000",
+            "predicate": "other_income",
+            "raw": "453",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2024-03-31",
+              "label": "FY 2023-24",
+              "start": "2023-04-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "8",
+              "table_index": "0",
+              "table_row": "6"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_66f107f880e9aa4279db68ad",
+          "normalized": "85940000000",
+          "predicate": "total_income",
+          "raw": "8,594",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "85940000000",
+      "calculated_result": "167370000000",
+      "difference": "81430000000",
+      "tolerance": "20000000",
+      "explanation": "Stated total 85940000000 and recomputed 167370000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374673Z"
+    },
+    {
+      "id": "check_ca32680c77c9f2b147018b84",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_d2acb6af064657f5b91cfa6b",
+        "fact_09337ea012946082154545eb",
+        "fact_32d642e936704fe9e30cbb91",
+        "fact_60d3067b506f732513525ccc",
+        "fact_65e57b5eb923b3976c1b125b",
+        "fact_eb7d0d644128bde9d7ad8894"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "FY 2023-24",
+                "start": "2023-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "8",
+                "table_index": "0",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_09337ea012946082154545eb",
+            "normalized": "2260000000",
+            "predicate": "employee_benefit_expense_share_based_payments",
+            "raw": "226",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "FY 2023-24",
+                "start": "2023-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "8",
+                "table_index": "0",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_32d642e936704fe9e30cbb91",
+            "normalized": "12110000000",
+            "predicate": "employee_benefit_expense_excl_share_based_payments",
+            "raw": "1,211",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "FY 2023-24",
+                "start": "2023-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "8",
+                "table_index": "0",
+                "table_row": "13"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_60d3067b506f732513525ccc",
+            "normalized": "890000000",
+            "predicate": "finance_costs",
+            "raw": "89",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "FY 2023-24",
+                "start": "2023-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "8",
+                "table_index": "0",
+                "table_row": "12"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_65e57b5eb923b3976c1b125b",
+            "normalized": "6070000000",
+            "predicate": "other_operating_expense",
+            "raw": "607",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": {
+                "end": "2024-03-31",
+                "label": "FY 2023-24",
+                "start": "2023-04-01"
+              },
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "period_kind": "fiscal_year",
+                "table_column": "8",
+                "table_index": "0",
+                "table_row": "14"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_eb7d0d644128bde9d7ad8894",
+            "normalized": "7220000000",
+            "predicate": "depreciation_and_amortisation_expense",
+            "raw": "722",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": {
+              "end": "2024-03-31",
+              "label": "FY 2023-24",
+              "start": "2023-04-01"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "8",
+              "table_index": "0",
+              "table_row": "15"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_d2acb6af064657f5b91cfa6b",
+          "normalized": "88250000000",
+          "predicate": "total_expenses",
+          "raw": "8,825",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "88250000000",
+      "calculated_result": "28550000000",
+      "difference": "59700000000",
+      "tolerance": "30000000",
+      "explanation": "Stated total 88250000000 and recomputed 28550000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374710Z"
+    },
+    {
+      "id": "check_7ec656c67f208c943d577ce7",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_cd4095395a2841a995a61a4b",
+        "fact_316ce3ac5816dca7e949240b",
+        "fact_32b276f050409c3ff83fc7aa",
+        "fact_3d5ef5c80afb1e42057ecb41",
+        "fact_8fbe517444646d87f20eba52",
+        "fact_ae56702dc28f78fbe7efd608",
+        "fact_b8542fbcf944d7c475286ced",
+        "fact_c4be0ca8c904b8f141dfaa07",
+        "fact_f819e2317295f88461e75433",
+        "fact_f874dca06e57edeef08ff21a"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "3"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_316ce3ac5816dca7e949240b",
+            "normalized": "1140000000",
+            "predicate": "borrowings",
+            "raw": "114",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "8"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_32b276f050409c3ff83fc7aa",
+            "normalized": "840000000",
+            "predicate": "borrowings",
+            "raw": "84",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_3d5ef5c80afb1e42057ecb41",
+            "normalized": "270000000",
+            "predicate": "provisions",
+            "raw": "27",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "6"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_8fbe517444646d87f20eba52",
+            "normalized": "310000000",
+            "predicate": "deferred_tax_liabilities_net",
+            "raw": "31",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_ae56702dc28f78fbe7efd608",
+            "normalized": "7870000000",
+            "predicate": "trade_payables",
+            "raw": "787",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "12"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_b8542fbcf944d7c475286ced",
+            "normalized": "2160000000",
+            "predicate": "other_current_liabilities",
+            "raw": "216",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_c4be0ca8c904b8f141dfaa07",
+            "normalized": "5340000000",
+            "predicate": "lease_liabilities",
+            "raw": "534",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "9"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_f819e2317295f88461e75433",
+            "normalized": "1900000000",
+            "predicate": "lease_liabilities",
+            "raw": "190",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "0",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_f874dca06e57edeef08ff21a",
+            "normalized": "510000000",
+            "predicate": "provisions",
+            "raw": "51",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": null,
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "table_column": "1",
+              "table_index": "0",
+              "table_row": "13"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_cd4095395a2841a995a61a4b",
+          "normalized": "20360000000",
+          "predicate": "total_liabilities",
+          "raw": "2,036",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "20360000000",
+      "calculated_result": "20340000000",
+      "difference": "20000000",
+      "tolerance": "50000000",
+      "explanation": "Stated total 20360000000 and recomputed 20340000000 cannot be judged safely. Review notes: The operands have no shared reporting context or source location. The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374780Z"
+    },
+    {
+      "id": "check_2c47e4addd7d0dbb01c7ac56",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_bfddbe96c05bcb5a5110462f",
+        "fact_05bc2dc1a0f0bd21732105f5",
+        "fact_44c3cc76239a246339057c7a",
+        "fact_475d5985252994c07374498d",
+        "fact_82b41d11ea59f2f7dc2e7b75",
+        "fact_b7933c40c2fbe886c62918f4",
+        "fact_c8f6ad56868769dae55a2f26",
+        "fact_daf020a4446d640e39034c57",
+        "fact_e7b87c7daff935fd9571488d",
+        "fact_f27d8f667d8189991c44d312"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "12"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_05bc2dc1a0f0bd21732105f5",
+            "normalized": "2250000000",
+            "predicate": "other_current_liabilities",
+            "raw": "225",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "3"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_44c3cc76239a246339057c7a",
+            "normalized": "400000000",
+            "predicate": "borrowings",
+            "raw": "40",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_475d5985252994c07374498d",
+            "normalized": "7970000000",
+            "predicate": "trade_payables",
+            "raw": "797",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_82b41d11ea59f2f7dc2e7b75",
+            "normalized": "8440000000",
+            "predicate": "lease_liabilities",
+            "raw": "844",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_b7933c40c2fbe886c62918f4",
+            "normalized": "650000000",
+            "predicate": "provisions",
+            "raw": "65",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_c8f6ad56868769dae55a2f26",
+            "normalized": "390000000",
+            "predicate": "provisions",
+            "raw": "39",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "6"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_daf020a4446d640e39034c57",
+            "normalized": "130000000",
+            "predicate": "deferred_tax_liabilities_net",
+            "raw": "13",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "9"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_e7b87c7daff935fd9571488d",
+            "normalized": "2000000000",
+            "predicate": "lease_liabilities",
+            "raw": "200",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "0",
+                "table_row": "8"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_f27d8f667d8189991c44d312",
+            "normalized": "850000000",
+            "predicate": "borrowings",
+            "raw": "85",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": null,
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "table_column": "2",
+              "table_index": "0",
+              "table_row": "13"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_bfddbe96c05bcb5a5110462f",
+          "normalized": "23080000000",
+          "predicate": "total_liabilities",
+          "raw": "2,308",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "23080000000",
+      "calculated_result": "23080000000",
+      "difference": "0",
+      "tolerance": "50000000",
+      "explanation": "Stated total 23080000000 and recomputed 23080000000 cannot be judged safely. Review notes: The operands have no shared reporting context or source location. The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374835Z"
+    },
+    {
+      "id": "check_7311d264dc5ab875914b3c6e",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_eb95eebc1e791793599a1dad",
+        "fact_09d59283e2b0470b1984109f",
+        "fact_26e278542491b338e0a11604",
+        "fact_69307a57c5c7690fbac30d96",
+        "fact_805042ae9d8254cfbf604110",
+        "fact_87cc9f1c19af3e4d54696e20",
+        "fact_acb06e7cadb43b46f4345d81",
+        "fact_acca8b4e659cc6b691b39cc6",
+        "fact_d292d0274bfa28b26c0fae50",
+        "fact_d57891c0a2381ceac504cca8",
+        "fact_d8b0a9080b1b44c551b344f4",
+        "fact_e3c26394b072a858ff03ff34",
+        "fact_f85aaba6d6a0a22c10955a47"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "3"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_09d59283e2b0470b1984109f",
+            "normalized": "8170000000",
+            "predicate": "property_plant_and_equipment_incl_cwip",
+            "raw": "817",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "8"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_26e278542491b338e0a11604",
+            "normalized": "1380000000",
+            "predicate": "other_assets",
+            "raw": "138",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_69307a57c5c7690fbac30d96",
+            "normalized": "15330000000",
+            "predicate": "goodwill_and_other_intangible_assets",
+            "raw": "1,533",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_805042ae9d8254cfbf604110",
+            "normalized": "6670000000",
+            "predicate": "right_of_use_assets",
+            "raw": "667",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "6"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_87cc9f1c19af3e4d54696e20",
+            "normalized": "2820000000",
+            "predicate": "investments",
+            "raw": "282",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "7"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_acb06e7cadb43b46f4345d81",
+            "normalized": "2160000000",
+            "predicate": "non_current_tax_assets",
+            "raw": "216",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_acca8b4e659cc6b691b39cc6",
+            "normalized": "49120000000",
+            "predicate": "cash_and_cash_equivalents",
+            "raw": "4,912",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "13"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_d292d0274bfa28b26c0fae50",
+            "normalized": "190000000",
+            "predicate": "inventories",
+            "raw": "19",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "2"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_d57891c0a2381ceac504cca8",
+            "normalized": "5960000000",
+            "predicate": "non_current_cash_equivalents",
+            "raw": "596",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "14"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_d8b0a9080b1b44c551b344f4",
+            "normalized": "4550000000",
+            "predicate": "other_assets",
+            "raw": "455",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "12"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_e3c26394b072a858ff03ff34",
+            "normalized": "530000000",
+            "predicate": "unbilled_receivables",
+            "raw": "53",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "1",
+                "table_index": "1",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_f85aaba6d6a0a22c10955a47",
+            "normalized": "15240000000",
+            "predicate": "trade_receivables",
+            "raw": "1,524",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": null,
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "table_column": "1",
+              "table_index": "1",
+              "table_row": "15"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_eb95eebc1e791793599a1dad",
+          "normalized": "112130000000",
+          "predicate": "total_assets",
+          "raw": "11,213",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "112130000000",
+      "calculated_result": "112120000000",
+      "difference": "10000000",
+      "tolerance": "65000000",
+      "explanation": "Stated total 112130000000 and recomputed 112120000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374904Z"
+    },
+    {
+      "id": "check_50d81a046aadc025ec14e98a",
+      "check_type": "component_total",
+      "fact_ids": [
+        "fact_1c182f819437ad6348e1edd2",
+        "fact_0b1269b9369af56260339bc2",
+        "fact_1113e81957d21a3a1986104a",
+        "fact_168abc040d29a988429ec5f8",
+        "fact_4cae48dc410292ad627740ec",
+        "fact_64520f8474f79150692fd910",
+        "fact_9baf280048f8f2a936bea654",
+        "fact_c0b82d68d149f0493b8efe9e",
+        "fact_c63a17316a606f4b3d42962f",
+        "fact_e0fbd7cfe6f7a5b87dbcfff4",
+        "fact_e18dd1a1aef563c09ef62f58",
+        "fact_e78679fe016f1dd49a32c1f2",
+        "fact_fad36edd6c9934a4dd925607"
+      ],
+      "relation_type": "needs_review",
+      "formula": "stated_total = sum(components)",
+      "operands": {
+        "components": [
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "5"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_0b1269b9369af56260339bc2",
+            "normalized": "9880000000",
+            "predicate": "right_of_use_assets",
+            "raw": "988",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "14"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_1113e81957d21a3a1986104a",
+            "normalized": "4090000000",
+            "predicate": "other_assets",
+            "raw": "409",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "8"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_168abc040d29a988429ec5f8",
+            "normalized": "1000000000",
+            "predicate": "other_assets",
+            "raw": "100",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "2"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_4cae48dc410292ad627740ec",
+            "normalized": "14110000000",
+            "predicate": "non_current_cash_equivalents",
+            "raw": "1,411",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "13"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_64520f8474f79150692fd910",
+            "normalized": "160000000",
+            "predicate": "inventories",
+            "raw": "16",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "10"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_9baf280048f8f2a936bea654",
+            "normalized": "40330000000",
+            "predicate": "cash_and_cash_equivalents",
+            "raw": "4,033",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "11"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_c0b82d68d149f0493b8efe9e",
+            "normalized": "14300000000",
+            "predicate": "trade_receivables",
+            "raw": "1,430",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "7"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_c63a17316a606f4b3d42962f",
+            "normalized": "2590000000",
+            "predicate": "non_current_tax_assets",
+            "raw": "259",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "12"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_e0fbd7cfe6f7a5b87dbcfff4",
+            "normalized": "620000000",
+            "predicate": "unbilled_receivables",
+            "raw": "62",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "4"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_e18dd1a1aef563c09ef62f58",
+            "normalized": "14330000000",
+            "predicate": "goodwill_and_other_intangible_assets",
+            "raw": "1,433",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "3"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_e78679fe016f1dd49a32c1f2",
+            "normalized": "9610000000",
+            "predicate": "property_plant_and_equipment_incl_cwip",
+            "raw": "961",
+            "unit": "INR"
+          },
+          {
+            "context": {
+              "as_of": null,
+              "basis": null,
+              "geography": null,
+              "period": null,
+              "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+              "qualifiers": {
+                "table_column": "2",
+                "table_index": "1",
+                "table_row": "6"
+              },
+              "scope": null
+            },
+            "fact_id": "fact_fad36edd6c9934a4dd925607",
+            "normalized": "3510000000",
+            "predicate": "investments",
+            "raw": "351",
+            "unit": "INR"
+          }
+        ],
+        "components_complete": false,
+        "stated_total": {
+          "context": {
+            "as_of": null,
+            "basis": null,
+            "geography": null,
+            "period": null,
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "table_column": "2",
+              "table_index": "1",
+              "table_row": "15"
+            },
+            "scope": null
+          },
+          "fact_id": "fact_1c182f819437ad6348e1edd2",
+          "normalized": "114530000000",
+          "predicate": "total_assets",
+          "raw": "11,453",
+          "unit": "INR"
+        }
+      },
+      "stated_result": "114530000000",
+      "calculated_result": "114530000000",
+      "difference": "0",
+      "tolerance": "65000000",
+      "explanation": "Stated total 114530000000 and recomputed 114530000000 cannot be judged safely. Review notes: The supplied component list is not confirmed complete.",
+      "confidence": 0.45,
+      "rule_version": "consistency-v1",
+      "review_state": "needs_review",
+      "created_at": "2026-08-22T15:59:23.374969Z"
+    }
+  ],
+  "top_failure_reasons": [
+    [
+      "A numeric value was found, but no reliable predicate label was nearby.",
+      4010
+    ]
+  ],
+  "relationship_examples": {
+    "contradicts": [
+      {
+        "relation_type": "contradicts",
+        "confidence": 0.864,
+        "explanation": "Corporate overheads: 2140000000 INR and 2110000000 INR differ by 30000000 while period, scope, basis, as-of date, unit, and geography are compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "corporate_overheads",
+          "subject": "Delhivery Limited",
+          "raw_value": "214",
+          "normalized_value": "2140000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "Q1 FY 2022-23",
+              "start": "2022-04-01",
+              "end": "2022-06-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "8",
+              "table_index": "0",
+              "table_row": "11"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 14,
+            "quote": "214",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corporate_overheads",
+          "subject": "Delhivery Limited",
+          "raw_value": "211",
+          "normalized_value": "2110000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "Q1 FY 2022-23",
+              "start": "2022-04-01",
+              "end": "2022-06-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "1",
+              "table_index": "0",
+              "table_row": "11"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 14,
+            "quote": "211",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "contradicts",
+        "confidence": 0.864,
+        "explanation": "Corporate overheads: 2170000000 INR and 2110000000 INR differ by 60000000 while period, scope, basis, as-of date, unit, and geography are compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "corporate_overheads",
+          "subject": "Delhivery Limited",
+          "raw_value": "217",
+          "normalized_value": "2170000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "Q1 FY 2022-23",
+              "start": "2022-04-01",
+              "end": "2022-06-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "9",
+              "table_index": "0",
+              "table_row": "11"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 14,
+            "quote": "217",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corporate_overheads",
+          "subject": "Delhivery Limited",
+          "raw_value": "211",
+          "normalized_value": "2110000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "Q1 FY 2022-23",
+              "start": "2022-04-01",
+              "end": "2022-06-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "1",
+              "table_index": "0",
+              "table_row": "11"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 14,
+            "quote": "211",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "contradicts",
+        "confidence": 0.7488,
+        "explanation": "Acquisition of subsidiar: 6940.54 and 7483.80 differ by 543.26 while period, scope, basis, as-of date, unit, and geography are compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "acquisition_of_subsidiar",
+          "subject": "Delhivery Limited",
+          "raw_value": "6,940.54",
+          "normalized_value": "6940.54",
+          "unit": null,
+          "context": {
+            "as_of": "2022-04-01",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "point_in_time"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 89,
+            "quote": "Particulars\nAmount\nAs at April 01, 2022\n6,940.54\nAcquisition of subsidiary\n2.76\nAdditions\n2,810.54\nDeletions\n(888.26)\nDepreciation expense (refer note 27)\n(2,198.13)\nAs at March 31, 2023\n6,667.45\nAs at April 01, 2023\n6,667.45\nAdditions\n5,897.30\nDeletions\n(352.56)\nDepreciation expense (refer note 27)\n(2,330.41)\nAs at March 31, 2024\n9,881.78",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "acquisition_of_subsidiar",
+          "subject": "Delhivery Limited",
+          "raw_value": "7,483.80",
+          "normalized_value": "7483.80",
+          "unit": null,
+          "context": {
+            "as_of": "2022-04-01",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "point_in_time"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 89,
+            "quote": "Particulars\nAmount\nAs at April 01, 2022\n7,483.80\nAcquisition of subsidiary\n2.64\nAdditions\n2,765.25\nAccretion of interest (refer note 28)\n673.37\nPayments\n(2,578.76)\nDeletion\n(1,100.61)\nAs at March 31, 2023\n7,245.69\nAs at April 01, 2023\n7,245.69\nAdditions\n5,654.89\nAccretion of interest (refer note 28)\n745.67\nPayments\n(2,768.93)\nDeletion\n(439.90)\nAs at March 31, 2024\n10,437.42",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "corroborates": [
+      {
+        "relation_type": "corroborates",
+        "confidence": 0.931,
+        "explanation": "Corporate identity number: cin:L63090DL2011PLC221234 and cin:L63090DL2011PLC221234 agree after normalization; material context is compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "corporate_identity_number",
+          "subject": "Delhivery Limited",
+          "raw_value": "CIN: L63090DL2011PLC221234",
+          "normalized_value": null,
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "Consolidated Statement of Profit and Loss\nfor the year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in million, unless otherwise stated)",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "scope": "consolidated",
+            "geography": "India",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "date_range"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 67,
+            "quote": "Consolidated Statement of Profit and Loss\nfor the year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in million, unless otherwise stated)",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corporate_identity_number",
+          "subject": "Delhivery Limited",
+          "raw_value": "CIN: L63090DL2011PLC221234",
+          "normalized_value": null,
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "Consolidated Cash Flow Statement\nfor year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in millions, unless otherwise stated)",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "scope": "consolidated",
+            "geography": "India",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "date_range"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 68,
+            "quote": "Consolidated Cash Flow Statement\nfor year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in millions, unless otherwise stated)",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "corroborates",
+        "confidence": 0.931,
+        "explanation": "Corporate identity number: cin:L63090DL2011PLC221234 and cin:L63090DL2011PLC221234 agree after normalization; material context is compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "corporate_identity_number",
+          "subject": "Delhivery Limited",
+          "raw_value": "CIN: L63090DL2011PLC221234",
+          "normalized_value": null,
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "Consolidated statement of changes in equity\nfor year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in millions, unless otherwise stated)",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "scope": "consolidated",
+            "geography": "India",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "date_range"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 69,
+            "quote": "Consolidated statement of changes in equity\nfor year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in millions, unless otherwise stated)",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corporate_identity_number",
+          "subject": "Delhivery Limited",
+          "raw_value": "CIN: L63090DL2011PLC221234",
+          "normalized_value": null,
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "Consolidated Statement of Profit and Loss\nfor the year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in million, unless otherwise stated)",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "scope": "consolidated",
+            "geography": "India",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "date_range"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 67,
+            "quote": "Consolidated Statement of Profit and Loss\nfor the year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in million, unless otherwise stated)",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "corroborates",
+        "confidence": 0.931,
+        "explanation": "Corporate identity number: cin:L63090DL2011PLC221234 and cin:L63090DL2011PLC221234 agree after normalization; material context is compatible.",
+        "context_diff": [],
+        "fact_a": {
+          "predicate": "corporate_identity_number",
+          "subject": "Delhivery Limited",
+          "raw_value": "CIN: L63090DL2011PLC221234",
+          "normalized_value": null,
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "Consolidated statement of changes in equity\nfor year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in millions, unless otherwise stated)",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "scope": "consolidated",
+            "geography": "India",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "date_range"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 69,
+            "quote": "Consolidated statement of changes in equity\nfor year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in millions, unless otherwise stated)",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corporate_identity_number",
+          "subject": "Delhivery Limited",
+          "raw_value": "CIN: L63090DL2011PLC221234",
+          "normalized_value": null,
+          "unit": null,
+          "context": {
+            "period": {
+              "label": "Consolidated Cash Flow Statement\nfor year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in millions, unless otherwise stated)",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "scope": "consolidated",
+            "geography": "India",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "date_range"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 68,
+            "quote": "Consolidated Cash Flow Statement\nfor year ended March 31, 2024\nCIN: L63090DL2011PLC221234\n(All amounts in Indian Rupees in millions, unless otherwise stated)",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "incomparable": [
+      {
+        "relation_type": "incomparable",
+        "confidence": 0.5796,
+        "explanation": "total revenue from contracts with customers: the facts are not safely comparable because period, unit.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2022-06-30",
+              "start": "2022-04-01"
+            },
+            "right": null,
+            "explains_difference": false
+          },
+          {
+            "field": "unit",
+            "left": {
+              "currency": "INR",
+              "unit": "rupee"
+            },
+            "right": {
+              "currency": null,
+              "unit": "percent"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "revenue_from_operations",
+          "subject": "Delhivery Limited",
+          "raw_value": "1,746",
+          "normalized_value": "17460000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "Q1 FY 2022-23",
+              "start": "2022-04-01",
+              "end": "2022-06-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "1",
+              "table_index": "0",
+              "table_row": "1"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "1,746",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "revenue_from_operations",
+          "subject": "Delhivery Limited",
+          "raw_value": "(5.4%)",
+          "normalized_value": "-5.4",
+          "unit": "percent",
+          "context": {
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "table_column": "4",
+              "table_index": "0",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 16,
+            "quote": "(5.4%)",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "incomparable",
+        "confidence": 0.5796,
+        "explanation": "total revenue from contracts with customers: the facts are not safely comparable because period, unit.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2022-09-30",
+              "start": "2022-07-01"
+            },
+            "right": null,
+            "explains_difference": false
+          },
+          {
+            "field": "unit",
+            "left": {
+              "currency": "INR",
+              "unit": "rupee"
+            },
+            "right": {
+              "currency": null,
+              "unit": "percent"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "revenue_from_operations",
+          "subject": "Delhivery Limited",
+          "raw_value": "1,796",
+          "normalized_value": "17960000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "Q2 FY 2022-23",
+              "start": "2022-07-01",
+              "end": "2022-09-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "2",
+              "table_index": "0",
+              "table_row": "1"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "1,796",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "revenue_from_operations",
+          "subject": "Delhivery Limited",
+          "raw_value": "(5.4%)",
+          "normalized_value": "-5.4",
+          "unit": "percent",
+          "context": {
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "table_column": "4",
+              "table_index": "0",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 16,
+            "quote": "(5.4%)",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "incomparable",
+        "confidence": 0.5796,
+        "explanation": "total revenue from contracts with customers: the facts are not safely comparable because period, unit.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": null,
+            "right": {
+              "end": "2022-12-31",
+              "start": "2022-10-01"
+            },
+            "explains_difference": false
+          },
+          {
+            "field": "unit",
+            "left": {
+              "currency": null,
+              "unit": "percent"
+            },
+            "right": {
+              "currency": "INR",
+              "unit": "rupee"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "revenue_from_operations",
+          "subject": "Delhivery Limited",
+          "raw_value": "(5.4%)",
+          "normalized_value": "-5.4",
+          "unit": "percent",
+          "context": {
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "table_column": "4",
+              "table_index": "0",
+              "table_row": "4"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 16,
+            "quote": "(5.4%)",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "revenue_from_operations",
+          "subject": "Delhivery Limited",
+          "raw_value": "1,824",
+          "normalized_value": "18240000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "Q3 FY 2022-23",
+              "start": "2022-10-01",
+              "end": "2022-12-31"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "3",
+              "table_index": "0",
+              "table_row": "1"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "1,824",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "needs_review": [
+      {
+        "relation_type": "needs_review",
+        "confidence": 0.495,
+        "explanation": "Corp. overheads (% of revenue): comparison needs review because period context is missing or uncertain.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2023-09-30",
+              "start": "2023-07-01"
+            },
+            "right": {
+              "end": "2023-03-31",
+              "start": "2022-04-01"
+            },
+            "explains_difference": false
+          }
+        ],
+        "fact_a": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "11.0%",
+          "normalized_value": "11.0",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "Q2 FY 2023-24",
+              "start": "2023-07-01",
+              "end": "2023-09-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "6",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "11.0%",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "11.4%",
+          "normalized_value": "11.4",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "FY 2022-23",
+              "start": "2022-04-01",
+              "end": "2023-03-31"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "10",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "11.4%",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "needs_review",
+        "confidence": 0.495,
+        "explanation": "Corp. overheads (% of revenue): comparison needs review because period context is missing or uncertain.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2023-09-30",
+              "start": "2023-07-01"
+            },
+            "right": {
+              "end": "2024-03-31",
+              "start": "2023-04-01"
+            },
+            "explains_difference": false
+          }
+        ],
+        "fact_a": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "11.0%",
+          "normalized_value": "11.0",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "Q2 FY 2023-24",
+              "start": "2023-07-01",
+              "end": "2023-09-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "6",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "11.0%",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "10.6%",
+          "normalized_value": "10.6",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "FY 2023-24",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "11",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "10.6%",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "needs_review",
+        "confidence": 0.495,
+        "explanation": "Adjusted EBITDA: comparison needs review because period context is missing or uncertain.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2023-03-31",
+              "start": "2023-01-01"
+            },
+            "right": {
+              "end": "2024-03-31",
+              "start": "2023-04-01"
+            },
+            "explains_difference": false
+          }
+        ],
+        "fact_a": {
+          "predicate": "adjusted_ebitda",
+          "subject": "Delhivery Limited",
+          "raw_value": "6",
+          "normalized_value": "60000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "Q4 FY 2022-23",
+              "start": "2023-01-01",
+              "end": "2023-03-31"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "4",
+              "table_index": "0",
+              "table_row": "6"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "6",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "adjusted_ebitda",
+          "subject": "Delhivery Limited",
+          "raw_value": "76",
+          "normalized_value": "760000000",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "FY 2023-24",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year",
+              "table_column": "11",
+              "table_index": "0",
+              "table_row": "6"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [
+            "The unit '₹ Cr' was taken from the table header because the cell did not repeat it."
+          ],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "76",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "reconciled_by_as_of": [
+      {
+        "relation_type": "reconciled_by_as_of",
+        "confidence": 0.7176,
+        "explanation": "Loss for the year: 58931.58 and 91042.65 refer to different as of contexts (2022-04-01 versus 2023-04-01), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "as_of",
+            "left": "2022-04-01",
+            "right": "2023-04-01",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "loss_for_the_year",
+          "subject": "Delhivery Limited",
+          "raw_value": "58,931.58",
+          "normalized_value": "58931.58",
+          "unit": null,
+          "context": {
+            "as_of": "2022-04-01",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "point_in_time"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 69,
+            "quote": "Balance as at April 01, 2022\n113,734.56\n3,560.10\n-\n(58,369.30)\n6.22\n58,931.58\nLoss for the year\n-\n-\n-\n(10,077.79)\n-\n(10,077.79)",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "loss_for_the_year",
+          "subject": "Delhivery Limited",
+          "raw_value": "91,042.65",
+          "normalized_value": "91042.65",
+          "unit": null,
+          "context": {
+            "as_of": "2023-04-01",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "point_in_time"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 69,
+            "quote": "Balance as at April 01, 2023\n153,857.93\n5,341.00\n272.29\n(68,463.37)\n34.80\n91,042.65\nLoss for the year\n-\n-\n-\n(2,491.86)\n-\n(2,491.86)",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_as_of",
+        "confidence": 0.6624,
+        "explanation": "Share based payment expense: 2219.38 and 2891.41 refer to different as of contexts (2024-03-31 versus 2023-03-31), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "as_of",
+            "left": "2024-03-31",
+            "right": "2023-03-31",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "share_based_payment_expense",
+          "subject": "Delhivery Limited",
+          "raw_value": "2,219.38",
+          "normalized_value": "2219.38",
+          "unit": null,
+          "context": {
+            "as_of": "2024-03-31",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "point_in_time"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 69,
+            "quote": "Add: Share based payment expense\n-\n2,219.38\n-\n-\n-\n2,219.38\nBalance as at March 31, 2024\n155,644.44\n5,670.83\n272.29\n(70,914.48)\n36.59\n90,709.67",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "share_based_payment_expense",
+          "subject": "Delhivery Limited",
+          "raw_value": "2,891.41",
+          "normalized_value": "2891.41",
+          "unit": null,
+          "context": {
+            "as_of": "2023-03-31",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "point_in_time"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 69,
+            "quote": "Add: Share based payment expense\n-\n2,891.41\n-\n-\n-\n2,891.41\nBalance as at March 31, 2023\n153,857.93\n5,341.00\n272.29\n(68,463.37)\n34.80\n91,042.65",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_as_of",
+        "confidence": 0.598,
+        "explanation": "Board membership status: ceased and serving refer to different as of contexts (2023-09-27 versus 2021-12-24), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "as_of",
+            "left": "2023-09-27",
+            "right": "2021-12-24",
+            "explains_difference": true
+          },
+          {
+            "field": "publisher",
+            "left": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "right": "01-delhivery-prospectus-2022-excerpt.pdf",
+            "explains_difference": false
+          }
+        ],
+        "fact_a": {
+          "predicate": "board_membership_status",
+          "subject": "Donald Francis Colleran",
+          "raw_value": "ceased to be",
+          "normalized_value": null,
+          "unit": null,
+          "context": {
+            "as_of": "2023-09-27",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf"
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 23,
+            "quote": "Donald Francis Colleran, Non-Executive Director\n(DIN: 09431299), was liable to retire by rotation at the\n12th AGM, and not proposed for re-election due to his\nunwillingness. Therefore, Mr. Donald Francis Colleran\nceased to be a Director at the conclusion of the\n12th AGM i.e., September 27, 2023.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "board_membership_status",
+          "subject": "Donald Francis Colleran",
+          "raw_value": "Period of Directorship: Since",
+          "normalized_value": null,
+          "unit": null,
+          "context": {
+            "as_of": "2021-12-24",
+            "publisher": "01-delhivery-prospectus-2022-excerpt.pdf"
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_0d7e71e1766ef33063e52a21",
+            "pdf_page_index": 84,
+            "quote": "Period of Directorship: Since July 1, 2015\nDIN: 01432123\nKapil Bharati\nDesignation: Executive Director and Chief Technology Officer\nAddress: 295 DDA Flats, Gulmohar Enclave, Andrewsganj\nS.O., South Delhi, Delhi 110049, India\nOccupation: Business\nDate of birth: May 11, 1978\nTerm: Five years with effect from October 13, 2021 and liable\nto retire by rotation\nPeriod of Directorship: Since August 19, 2021\nDIN: 02227607\nDonald Francis Colleran\nDesignation: Non-Executive Nominee Director\nAddress: 1895 Hazelton Dr, Germantown, TN 38138-2658\nUnited States of America\nOccupation: President & CEO, FedEx Express\nDate of birth: January 6, 1956\nTerm: Liable to retire by rotation\nPeriod of Directorship: Since December 24, 2021\nDIN: 09431299\nMunish Ravinder Varma\nDesignation: Non-Executive Nominee Director\nAddress: 36, Hamilton Terrace, St.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "reconciled_by_period": [
+      {
+        "relation_type": "reconciled_by_period",
+        "confidence": 0.828,
+        "explanation": "Corp. overheads (% of revenue): 11.0 percent and 12.1 percent refer to different period contexts (2023-07-01/2023-09-30 versus 2022-04-01/2022-06-30), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2023-09-30",
+              "start": "2023-07-01"
+            },
+            "right": {
+              "end": "2022-06-30",
+              "start": "2022-04-01"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "11.0%",
+          "normalized_value": "11.0",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "Q2 FY 2023-24",
+              "start": "2023-07-01",
+              "end": "2023-09-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "6",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "11.0%",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "12.1%",
+          "normalized_value": "12.1",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "Q1 FY 2022-23",
+              "start": "2022-04-01",
+              "end": "2022-06-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "1",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "12.1%",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_period",
+        "confidence": 0.828,
+        "explanation": "Corp. overheads (% of revenue): 11.0 percent and 11.7 percent refer to different period contexts (2023-07-01/2023-09-30 versus 2022-07-01/2022-09-30), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2023-09-30",
+              "start": "2023-07-01"
+            },
+            "right": {
+              "end": "2022-09-30",
+              "start": "2022-07-01"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "11.0%",
+          "normalized_value": "11.0",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "Q2 FY 2023-24",
+              "start": "2023-07-01",
+              "end": "2023-09-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "6",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "11.0%",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "11.7%",
+          "normalized_value": "11.7",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "Q2 FY 2022-23",
+              "start": "2022-07-01",
+              "end": "2022-09-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "2",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "11.7%",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_period",
+        "confidence": 0.828,
+        "explanation": "Corp. overheads (% of revenue): 11.0 percent and 11.3 percent refer to different period contexts (2023-07-01/2023-09-30 versus 2022-10-01/2022-12-31), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "period",
+            "left": {
+              "end": "2023-09-30",
+              "start": "2023-07-01"
+            },
+            "right": {
+              "end": "2022-12-31",
+              "start": "2022-10-01"
+            },
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "11.0%",
+          "normalized_value": "11.0",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "Q2 FY 2023-24",
+              "start": "2023-07-01",
+              "end": "2023-09-30"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "6",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "11.0%",
+            "extractor": "table",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "corp_overheads_percentage_of_revenue",
+          "subject": "Delhivery Limited",
+          "raw_value": "11.3%",
+          "normalized_value": "11.3",
+          "unit": "percent",
+          "context": {
+            "period": {
+              "label": "Q3 FY 2022-23",
+              "start": "2022-10-01",
+              "end": "2022-12-31"
+            },
+            "publisher": "03-delhivery-q4-fy24-earnings-presentation.pdf",
+            "qualifiers": {
+              "period_kind": "quarter",
+              "table_column": "3",
+              "table_index": "0",
+              "table_row": "5"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_5ca307085c96c1fcbfd2d99a",
+            "pdf_page_index": 13,
+            "quote": "11.3%",
+            "extractor": "table",
+            "verified": true
+          }
+        }
+      }
+    ],
+    "reconciled_by_scope": [
+      {
+        "relation_type": "reconciled_by_scope",
+        "confidence": 0.8464,
+        "explanation": "total revenue from contracts with customers: 81415380000.00 INR and 74540820000.00 INR refer to different scope contexts (consolidated versus standalone), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "scope",
+            "left": "consolidated",
+            "right": "standalone",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "revenue_from_operations",
+          "subject": "Delhivery Limited",
+          "raw_value": "₹ 81,415.38 million",
+          "normalized_value": "81415380000.00",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "FY 2023-24",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "scope": "consolidated",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 21,
+            "quote": "y The revenue from operations on consolidated basis for\nFY24 stood at ₹ 81,415.38 million as against ₹72,253.01\nmillion for FY23, registering a growth of 12.68%.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "revenue_from_operations",
+          "subject": "Delhivery Limited",
+          "raw_value": "₹ 74,540.82 million",
+          "normalized_value": "74540820000.00",
+          "unit": "rupee",
+          "context": {
+            "period": {
+              "label": "FY 2023-24",
+              "start": "2023-04-01",
+              "end": "2024-03-31"
+            },
+            "scope": "standalone",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf",
+            "qualifiers": {
+              "period_kind": "fiscal_year"
+            }
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 21,
+            "quote": "y The revenue from operations on standalone basis for FY24\nstood at ₹ 74,540.82 million as against ₹66,586.61 million\nfor FY23, registering a growth of 11.95%.",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      },
+      {
+        "relation_type": "reconciled_by_scope",
+        "confidence": 0.7176,
+        "explanation": "Total: 98.23 and 100.00 refer to different scope contexts (consolidated versus segment), which explains why they should not be treated as the same observation.",
+        "context_diff": [
+          {
+            "field": "scope",
+            "left": "consolidated",
+            "right": "segment",
+            "explains_difference": true
+          }
+        ],
+        "fact_a": {
+          "predicate": "total",
+          "subject": "Delhivery Limited",
+          "raw_value": "98.23",
+          "normalized_value": "98.23",
+          "unit": null,
+          "context": {
+            "scope": "consolidated",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf"
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 46,
+            "quote": "Sl.\nNo.\nShareholding of Shares\nShareholder\nPercentage\nTotal number of\n1\n1\nto\n500\n89,235\n94.89\n4,965,371\n0.67\n2\n501\nto\n1,000\n1,915\n2.04\n1,510,057\n0.20\n3\n1001\nto\n2,000\n1,051\n1.12\n1,552,874\n0.21\n4\n2001\nto\n3,000\n405\n0.43\n1,029,450\n0.14\n5\n3001\nto\n4,000\n201\n0.21\n719,330\n0.10\n6\n4001\nto\n5,000\n181\n0.19\n852,482\n0.12\n7\n5001\nto 10,000\n340\n0.36\n2,444,234\n0.33\n8\n10001\nto\n******\n712\n0.76\n723,711,457\n98.23\nTotal\n94,040\n100.00\n736,785,255\n100.00\n* Distribution of shareholding is not consolidated on PAN basis.\nj)\nShareholding Pattern as on March 31, 2024",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        },
+        "fact_b": {
+          "predicate": "total",
+          "subject": "Delhivery Limited",
+          "raw_value": "100.00",
+          "normalized_value": "100.00",
+          "unit": null,
+          "context": {
+            "scope": "segment",
+            "publisher": "02-delhivery-annual-report-fy24-excerpt.pdf"
+          },
+          "review_state": "ready",
+          "warnings": [],
+          "evidence": {
+            "document": "doc_de6d79adc0667d66f5415fa4",
+            "pdf_page_index": 46,
+            "quote": "of\nShares\nPhysical Segment\n02\n0.00\nDemat Segment:\nNSDL (A)\n706,144,281\n95.84\nCDSL (B)\n30,640,972\n4.16\nTotal (A + B)\n736,785,253\n100.00\nTotal\n736,785,255\n100.00",
+            "extractor": "deterministic",
+            "verified": true
+          }
+        }
+      }
+    ]
+  }
+}
