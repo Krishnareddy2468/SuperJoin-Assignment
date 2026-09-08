@@ -1,6 +1,6 @@
 # Engineering Intern Hiring Assignment
 
-### Welcome! 👋
+### Welcome!
 
 This assignment is intentionally open-ended. We want to see how you explore an unfamiliar problem and turn your ideas into something that works.
 
@@ -8,7 +8,7 @@ This assignment is intentionally open-ended. We want to see how you explore an u
 - We care more about your approach and creativity than production-level polish.
 - Be honest about what works, what does not, and what you would improve.
 
-## ✨ The Challenge: Build a Fact Knowledge Layer ✨
+## The Challenge: Build a Fact Knowledge Layer
 
 Important facts are often scattered across documents, stated in different ways, supported by other evidence, or contradicted elsewhere.
 
@@ -47,7 +47,7 @@ For inspiration, two revenue figures may differ because they cover different per
 
 We do not expect perfect extraction or a production-ready system. A smaller, understandable prototype is better than a large system whose behavior is unclear.
 
-## Brownie Points 🍪
+## Brownie Points
 
 If the core experience works, try extending it to handle:
 
@@ -58,7 +58,7 @@ If the core experience works, try extending it to handle:
 
 These are suggestions, not additional requirements. Feel free to explore another extension that meaningfully improves the core system.
 
-## Submission ⏰
+## Submission
 
 Use git meaningfully and complete the Developer's Section below with:
 
