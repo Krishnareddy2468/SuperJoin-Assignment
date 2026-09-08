@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Credentials — never commit these
+.env
+.env.local
+*.key
+
+# Local runtime artifacts
+*.db
+*.db-journal
+*.sqlite3
+data/
+uploads/
+.cache/
+
+# Private local development notes
+docs/PLAN.md
+docs/VIDEO-SCRIPT.md
+GITHUB_PUSH_PLAN.md
+
+# OS noise
+.DS_Store

@@ -1,0 +1,24 @@
+# Direct dependencies for development. Versions are bounded here so accidental
+# major upgrades do not change behaviour. For the exact tested environment use:
+#
+#   python -m pip install -r requirements.lock.txt
+
+# PDF ingestion
+pymupdf>=1.28,<1.29          # block geometry -> column-aware reading order
+pdfplumber>=0.11.10,<0.12    # table extraction
+
+# Core
+pydantic>=2.13,<3
+python-dotenv>=1.2,<2
+rapidfuzz>=3.14,<4           # fuzzy entity-name fallback
+
+# API + UI
+fastapi>=0.141,<0.142
+uvicorn[standard]>=0.52,<0.53
+python-multipart>=0.0.32,<0.1  # required by FastAPI for file uploads
+
+# LLM extractor (optional at runtime; pipeline runs fully without a key)
+google-genai>=2.19,<3
+
+# Tests
+pytest>=9.1,<10
