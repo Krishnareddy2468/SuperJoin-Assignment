@@ -47,19 +47,40 @@ reason.
 
 ---
 
-## Case 2 — a genuine or likely contradiction
+## Case 2 — a likely contradiction candidate
 
-**Verdict: none found. Reported honestly rather than manufactured.**
+**Verdict: `LIKELY_CONTRADICTION` candidate, confidence 0.45; requires review.**
 
-This is the one required case the system cannot demonstrate with a confirmed example, and the
-reason is worth more than a fabricated one would be.
+The Q4 FY23 earnings table gives **total income of ₹1,934 Cr** (PDF page 16). Re-adding the
+grounded rows that the extractor found gives **₹3,795 Cr**:
+
+| Grounded row | Value |
+|---|---:|
+| Revenue from operations | ₹1,860 Cr |
+| Revenue for services | ₹1,860 Cr |
+| Other income | ₹75 Cr |
+| Revenue from traded goods | ₹0 Cr |
+| **Recomputed total** | **₹3,795 Cr** |
+
+The stated total and recomputed total refer to the same table, quarter, unit, and source passage,
+so the ₹1,861 Cr gap is a **likely inconsistency** worth showing to a reviewer. The consistency
+checker keeps it in `NEEDS_REVIEW` rather than asserting a definitive contradiction because
+`revenue from services` is a subtotal of `revenue from operations`, and the extracted component
+list is not proven complete. That uncertainty is the point of the candidate: it shows the system
+can surface a grounded contradiction-shaped result without pretending that an extraction error is
+a fact about the filing.
+
+The source evidence is directly inspectable in the running UI and the source PDF: each number has
+a verified quote, PDF page, table coordinates, and the arithmetic explanation.
 
 **What searched for it.** Three independent mechanisms:
 
-- **The comparison rule.** A contradiction needs the same subject and measure, values that
+- **The comparison rule.** A confirmed contradiction needs the same subject and measure, values that
   disagree beyond their rounding precision, and context envelopes that are genuinely equivalent.
-  Across both datasets — 5,329 facts, 9,472 relationships — this produced **zero cross-document
-  contradictions**.
+  The refreshed run now gives the three macro reports a shared `India` subject and surfaces
+  cross-document candidates, but many remain in review because their period or basis is incomplete.
+  The consistency layer still surfaces the grounded candidate above rather than treating every
+  noisy candidate as a filing error.
 - **Arithmetic self-checks.** Growth claims are recomputed from the operands the documents
   themselves publish. On the Delhivery set this fired once and *confirmed* the filing:
 
@@ -110,15 +131,17 @@ third kind: table rows whose labels (`additions`, `balance_as_at_march`) repeat 
 and get flattened into one predicate. They are our defects, and we say so rather than dressing
 them up as findings.
 
-**What would trigger a real one.** A stated total that its own components do not sum to, a growth
-figure the underlying values contradict, or the same metric at identical period, scope and basis
-carrying different values in two filings. The machinery for the first two exists and is tested;
-these documents are simply consistent with themselves.
+**What would trigger a confirmed one.** A stated total that its own components do not sum to, a
+growth figure the underlying values contradict, or the same metric at identical period, scope and
+basis carrying different values in two filings. The machinery for the first two exists and is
+tested; the Delhivery candidates above remain explainable after source review, while the macro run
+now keeps its noisier cross-document candidates in the review queue.
 
-**The honest conclusion is itself the finding.** The intuition that financial and institutional
-documents contradict each other turns out to be largely wrong. Nearly every apparent conflict is
-a context difference, which is exactly why the context envelope, not a contradiction detector, is
-the centre of this design.
+**The honest conclusion is itself the finding.** The candidate is useful precisely because it is
+not silently promoted: the evidence and arithmetic are visible, while the subtotal and incomplete
+row coverage remain explicit reasons for human review. Nearly every other apparent conflict is a
+context difference, which is why the context envelope, not a contradiction detector alone, is the
+centre of this design.
 
 ---
 

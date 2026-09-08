@@ -74,8 +74,8 @@ Keep credentials out of the repository. If the project requires a paid service, 
 - [x] The project runs from my instructions and accepts new PDFs through an API or UI.
 - [x] Results contain facts, source evidence, and cross-document relationships.
 - [x] I demonstrate the four required cases — see [`docs/CASES.md`](docs/CASES.md). Case 2 is
-      reported as a null result with the candidates and the arithmetic that ruled each one out,
-      rather than a manufactured example.
+      shown as a grounded likely-contradiction candidate with the arithmetic and review caveat,
+      rather than a manufactured definitive contradiction.
 - [x] I have documented my approach and included a demo video, linked under
       [Video Demo](#video-demo).
 
@@ -254,12 +254,11 @@ with a fallback chain.
 
 Worst first.
 
-**I did not find a genuine contradiction, so Case 2 is a null result.** Three mechanisms went
-looking across 5,329 facts and 9,472 relationships and turned up zero cross-document
-contradictions. Each candidate was ruled out by arithmetic rather than hand-waving — the working
-is in [`docs/CASES.md`](docs/CASES.md). Manufacturing one would have been easy and dishonest.
-The checker does work: it recomputed a stated 12.68% growth as 12.69% using operands from a
-different document.
+**I did not find a confirmed cross-document contradiction.** Case 2 now shows a grounded likely
+contradiction candidate: a Q4 FY23 total-income row of ₹1,934 Cr versus a ₹3,795 Cr recomputation
+from the extracted components. The arithmetic, source evidence, and reasons it remains in review
+are documented in [`docs/CASES.md`](docs/CASES.md). The checker also recomputed a stated 12.68%
+growth as 12.69% using operands from a different document.
 
 **Predicate labels are the weakest part of the system, and they cause most of the remaining
 noise.** 1,986 of 2,691 Delhivery relationships sit in `needs_review`, and all 13 labelled
@@ -268,15 +267,13 @@ noise.** 1,986 of 2,691 Delhivery relationships sit in `needs_review`, and all 1
 header into the predicate so a row label is qualified by what it sits under. That single change
 would also fix the macro problem below, which is why it is the first thing I would do next.
 
-**The macroeconomy set is where it shows.** Facts extract fine — 3,125 of them, with no
-document-specific code — but the layer barely functions on them, for three compounding reasons.
-Only 219 carry a reporting period, because institutional reports put periods in table headers
-and chart axes rather than in prose. 1,014 of 1,375 predicates are used exactly once, and a
-predicate used once can never match anything. And nothing gives the three reports a shared
-subject, so all 6,781 relationships sit inside a single document and an IMF figure never meets
-an RBI one. Company filings escape this only because a registered name on the cover supplies a
-subject. Giving non-corporate documents one — the economy, the country, the programme a report
-is about — is the most interesting piece of unfinished work here.
+**The macroeconomy set is still the noisiest.** Facts extract without document-specific code —
+3,140 in the refreshed offline run — and the three reports now share the geographic subject
+`India`, so cross-document comparison is possible. Period and predicate quality remain uneven:
+institutional reports put many periods in table headers and chart axes, 1,354 predicates are
+registered, and most relationships remain `needs_review` until those headers are carried into
+the measure context. The next step is to qualify table predicates with their section and column
+headers and improve the review queue rather than hiding uncertain matches.
 
 **Two directors out of thirteen are still unidentified.** Board tables list several directors per
 extracted passage, each record ending in that director's DIN. Binding identity inside record
