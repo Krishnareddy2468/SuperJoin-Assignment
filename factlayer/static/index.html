@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inspect grounded facts and relationships extracted from PDFs.">
+  <title>FactLayer — Evidence you can inspect</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="FactLayer home">
+      <span class="brand-mark" aria-hidden="true">F</span>
+      <span><strong>FactLayer</strong><small>Evidence you can inspect</small></span>
+    </a>
+    <div class="system-state" id="system-state" role="status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>Connecting…</span>
+    </div>
+  </header>
+
+  <main id="workspace" class="app-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Grounded document intelligence</p>
+        <h1 id="hero-title">Turn scattered PDFs into<br><em>traceable facts.</em></h1>
+        <p class="hero-copy">Upload reports, compare what they say, and inspect the exact evidence
+          behind every agreement, conflict, and contextual difference.</p>
+      </div>
+
+      <form id="upload-form" class="upload-card" novalidate>
+        <input id="file-input" name="files" type="file" accept="application/pdf,.pdf" multiple hidden>
+        <label for="file-input" id="drop-zone" class="drop-zone">
+          <span class="upload-icon" aria-hidden="true">↑</span>
+          <strong>Drop PDFs here</strong>
+          <span>or choose files · PDF only</span>
+        </label>
+        <div id="upload-queue" class="upload-queue" aria-live="polite"></div>
+        <button id="upload-button" class="primary-button" type="submit" disabled>
+          Process selected PDFs
+        </button>
+      </form>
+    </section>
+
+    <section class="summary-grid" aria-label="Knowledge layer summary">
+      <article><span>Documents</span><strong id="document-count">—</strong><small>in this layer</small></article>
+      <article><span>Grounded facts</span><strong id="fact-count">—</strong><small>with source evidence</small></article>
+      <article><span>Relationships</span><strong id="relation-count">—</strong><small>compared and explained</small></article>
+      <article><span>Needs review</span><strong id="review-count">—</strong><small>visible uncertainty</small></article>
+    </section>
+
+    <section class="explorer" aria-labelledby="explorer-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Knowledge explorer</p><h2 id="explorer-title">Inspect the results</h2></div>
+        <button id="refresh-button" class="quiet-button" type="button">↻ Refresh</button>
+      </div>
+
+      <nav class="tabs" aria-label="Result views">
+        <button class="tab active" type="button" role="tab" aria-selected="true" data-view="documents">Documents</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-view="facts">Facts</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-view="relations">Relationships</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-view="failures">Failures</button>
+      </nav>
+
+      <div class="toolbar">
+        <label class="search-field">
+          <span class="sr-only">Search current view</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" placeholder="Search documents…" autocomplete="off">
+        </label>
+        <label>
+          <span class="sr-only">Filter current view</span>
+          <select id="filter-select"><option value="all">All statuses</option></select>
+        </label>
+      </div>
+
+      <div id="notice" class="notice hidden" role="status"></div>
+      <div id="result-panel" class="result-panel" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <aside id="detail-drawer" class="drawer" aria-hidden="true" aria-labelledby="drawer-title">
+    <button id="drawer-backdrop" class="drawer-backdrop" type="button" aria-label="Close details"></button>
+    <section class="drawer-panel" tabindex="-1">
+      <header>
+        <div><p class="eyebrow" id="drawer-kicker">Details</p><h2 id="drawer-title">Inspect result</h2></div>
+        <button id="drawer-close" class="icon-button" type="button" aria-label="Close details">×</button>
+      </header>
+      <div id="drawer-content" class="drawer-content"></div>
+    </section>
+  </aside>
+
+  <template id="loading-template">
+    <div class="loading-state" role="status"><span class="spinner"></span><p>Loading grounded results…</p></div>
+  </template>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
